@@ -39,6 +39,9 @@ body{
     align-items: center;
     margin-bottom: 13.5%;
 }
+.menu-background{
+    display: none;
+}
 .hamburger-menu{
     display: none;
 }
@@ -79,9 +82,10 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 .cta-back{
-    padding: 1.2rem 2.5rem;
+    padding: 1.2rem 2rem;
     border-radius: 30px;
     background-color: var(--moderate-cyan);
     color:rgb(250, 250, 250);
@@ -119,9 +123,17 @@ a{
     gap: 2.5rem;
 }
 .stats .numbers .stat{
+    position: relative;
+}
+.stats .numbers .stat:after{
+    content: "";
+    position: absolute;
+    left: calc(100% + 1.25rem);
+    bottom: 0;
+    height: 100%;
     border-right: 1px solid rgb(230, 230, 230);
 }
-.stats .numbers .stat:last-child{
+.stats .numbers .stat:last-child:after{
     border: none;
 }
 .stats .numbers .stat span{
@@ -369,4 +381,161 @@ a{
 }
 .cta-got-it:hover{
     background-color: var(--dark-cyan);
+}
+@media (max-width:768px){
+    body{
+        font-size: 13px;
+        --padding-width: 5vw;
+    }
+    .background{
+        background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0)),
+                    url("./images/image-hero-mobile.jpg") no-repeat top;
+        background-size: contain;
+        padding-top: 80%;
+    }
+    .head{
+        padding: 2rem var(--padding-width);
+        margin-bottom: 34.5%;
+        position: relative;
+    }
+    .hamburger-menu{
+        width: 16px;
+        height: 15px;
+        background: url("./images/icon-hamburger.svg") no-repeat;
+        display: block;
+        transition: all 0.2s;
+    }
+    .active .hamburger-menu{
+        background: url("./images/icon-close-menu.svg") no-repeat;
+        background-size: contain;
+    }
+    .menu{
+        opacity: 0;
+        display: none;
+    }
+    .active .menu{
+        position: absolute;
+        top: 100%;
+        opacity: 1;
+        width: calc(100% - 2 * var(--padding-width));
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 0rem;
+        background-color: white;
+        font-size: 1.5em;
+        z-index: 4;
+        box-shadow: 0 0 150px 150px rgba(0,0,0,0.4);
+        border-radius: 10px;
+    }
+    .menu > *{
+        color: var(--black);
+        border-bottom: 1px solid rgb(230, 230, 230);
+        padding: 1.5rem;
+    }
+    .menu > *:last-child{
+        border: none;
+    }
+    .project-header, .stats, .project-description, .modal-content, .modal-success{
+        margin: 2rem var(--padding-width);
+        width: calc(100% - 2 * var(--padding-width) - 4rem);
+        padding: 2rem;
+    }
+    .ctas{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 1rem;
+    }
+    .ctas .cta-back{
+        width: 100%;
+    }
+    .ctas .cta-bookmark p{
+        display: none;
+    }
+    .stats .numbers{
+        grid-template-columns: auto;
+        justify-content: center;
+        gap: 1rem;
+        text-align: center;
+    }
+    .stats .numbers .stat:after{
+        content: "";
+        position: absolute;
+        bottom: -1.25rem;
+        width: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: none;
+        border-bottom: 1px solid rgb(230, 230, 230);
+    }
+    .project-types .item{
+        padding: 2rem;
+    }
+    .project-description .project-types .item .header{
+        display: block;
+    }
+    .project-description .project-types .item .header > *{
+        margin: 0.5rem 0;
+    }
+    .project-description .project-types .item .info{
+        display: block;
+    }
+    .cta-reward{
+        width: 45%;
+    }
+    .modal-content{
+        position: absolute;
+        margin: 0;
+    }
+    .modal-content .item{
+        padding: 0;
+    }
+    .modal-content .item .info{
+        grid-template-columns: auto 1fr;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.5rem;
+        padding-bottom: 3rem;
+        position: relative;
+    }
+    .type-selection{
+        grid-area: 1/1/1/1;
+    }
+    .modal-content .item .info .description{
+        grid-area: 2 / 1 / 2 / span 2;
+    }
+    .info .header{
+        grid-template-columns: auto;
+        gap: 10px;
+        
+    }
+    .info .header .capacity{
+        position: absolute;
+        left: 1.5rem;
+        bottom: 1.5rem;
+    }
+    .item.item-selected .pledge{
+        padding: 1.5rem;
+        grid-template-columns: auto;
+        text-align: center;
+        gap: 1rem;
+    }
+    .price-input .container{
+        min-width: 6rem;
+    }
+    .icon-close{
+        top: 1.5rem;
+        right: 1.5rem;
+    }
+    .completed .modal-success{
+        margin: 0;
+    }
+    .modal-success .heading{
+        font-size: 1.5em;
+    }
+    .modal-success .description{
+        max-width: 100%;
+    }
 }

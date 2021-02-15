@@ -74,3 +74,14 @@ heading.forEach(item => {
         item.parentElement.previousElementSibling.click();
     });
 });
+
+var menu = document.querySelector(".hamburger-menu");
+menu.addEventListener("click", ()=>{
+    var par = menu.parentElement;
+    if(par.classList.contains("active")){
+        par.classList.remove("active");
+    }
+    else{
+        par.classList.add("active");
+    }
+});
