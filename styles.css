@@ -206,7 +206,10 @@ a{
     pointer-events: none;
 }
 .modal{
-    /* display: none; */
+    display: none;
+}
+.show-modal .modal{
+    display: block;
     position: absolute;
     width: 100%;
     background-color: rgba(0,0,0,0.8);
@@ -219,8 +222,15 @@ a{
     left: 50%;
     transform: translateX(-50%);
 }
+.completed .modal-content{
+    display: none;
+}
 .modal-content .item{
     padding: 0;
+}
+.modal-content .item.out-of-stock{
+    opacity: 0.5;
+    pointer-events: none;
 }
 .modal-content .item.item-selected{
     border: 2px solid;
