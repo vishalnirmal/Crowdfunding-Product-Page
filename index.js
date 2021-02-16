@@ -85,3 +85,23 @@ menu.addEventListener("click", ()=>{
         par.classList.add("active");
     }
 });
+
+var rewards = document.querySelectorAll(".cta-reward");
+rewards.forEach(reward =>{
+    reward.addEventListener("click", ()=>{
+        document.body.classList.add("show-modal");
+        if(reward.id == "reward-1"){
+            document.querySelector("#item-2 .type-selection").click();
+            document.querySelector("#item-2").scrollIntoView(true);
+        }
+        else if(reward.id == "reward-2"){
+            document.querySelector("#item-3 .type-selection").click();
+            document.querySelector("#item-3").scrollIntoView(true);
+        }
+        else{
+            document.querySelector("#item-4 .type-selection").click();
+            document.querySelector("#item-4").scrollIntoView(true);
+        }
+    });
+
+});
